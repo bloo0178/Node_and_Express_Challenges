@@ -1,7 +1,7 @@
 
 var express = require('express');
 var app = express();
-
+var bodyParser = require('body-parser');
 
 
 
@@ -17,7 +17,7 @@ app.use(function(req, res, next) {
 
 
 // --> 11)  Mount the body-parser middleware  here
-
+app.use(bodyParser.urlencoded({extended: false}));
 
 /** 1) Meet the node console. */
 console.log("Hello World");
@@ -80,6 +80,10 @@ app.route('/name').get((req, res) => {
 
 
 /** 12) Get data form POST  */
+
+app.post('/name', function(req, res) {
+  res.json ({ "name" : req.body.first + ' ' + req.body.last})
+});
 
 
 
