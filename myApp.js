@@ -24,6 +24,9 @@ console.log("Hello World");
 
 /** 2) A first working Express Server */
 
+/*app.get('/', function(req, res) {
+  res.send('Hello Express');
+});*/
 
 /** 3) Serve an HTML file */
 app.get('/', function(req, res) {
@@ -69,10 +72,15 @@ app.get('/:word/echo', function (req, res) {
 /** 10) Get input from client - Query parameters */
 // /name?first=<firstname>&last=<lastname>
 
-app.route('/name').get((req, res) => { 
-  res.json ( { "name" : req.query.first + ' ' + req.query.last})
-});
+/*app.get('/name', (req, res) => {
+  res.json({"name2" : req.query.first + ' ' + req.query.last});
+});*/
+
+/*app.route('/name').get((req, res) => { 
+  res.json ( { "name" : req.query.first + ' ' + req.query.last});
+});*/
   
+
 
   
 /** 11) Get ready for POST Requests - the `body-parser` */
@@ -81,11 +89,13 @@ app.route('/name').get((req, res) => {
 
 /** 12) Get data form POST  */
 
-app.post('/name', function(req, res) {
-  res.json ({ "name" : req.body.first + ' ' + req.body.last})
+
+app.post('/name', (req, res) => {
+  let name = req.body.first + ' ' + req.body.last;
+  res.json({name2: name});
 });
 
-
+ 
 
 // This would be part of the basic setup of an Express app
 // but to allow FCC to run tests, the server is already active
