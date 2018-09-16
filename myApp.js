@@ -72,9 +72,9 @@ app.get('/:word/echo', function (req, res) {
 /** 10) Get input from client - Query parameters */
 // /name?first=<firstname>&last=<lastname>
 
-/*app.get('/name', (req, res) => {
-  res.json({"name2" : req.query.first + ' ' + req.query.last});
-});*/
+app.get('/name', (req, res) => {
+  res.json({"name" : req.query.first + ' ' + req.query.last});
+});
 
 /*app.route('/name').get((req, res) => { 
   res.json ( { "name" : req.query.first + ' ' + req.query.last});
